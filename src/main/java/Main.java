@@ -1,3 +1,7 @@
+import java.util.Arrays;
+import java.util.Optional;
+import java.util.stream.Stream;
+
 class Main {
     public static void main(String[] args) throws InterruptedException {
         Thread t1 = new Thread(() -> System.out.println("Hello from Thread 1"));
@@ -27,6 +31,11 @@ class Main {
     }
 
     public static void printNameOfTerminatedThread(Thread[] threads) {
-        
+        for (Thread t : threads) {
+            if(t.getState() == Thread.State.TERMINATED)
+            {
+                System.out.println("TERMINATED THREAD: " + t.getName());
+            }
+        }
     }
 }
